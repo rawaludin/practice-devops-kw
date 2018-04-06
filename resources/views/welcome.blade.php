@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Practicing Devops
+                    Practicing Devops, now with auto deploy from travis.
                 </div>
 
                 <div class="links">
