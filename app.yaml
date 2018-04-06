@@ -14,3 +14,17 @@ env_variables:
   APP_LOG: errorlog
   APP_KEY: base64:/G+V/4bO6TRCfNYiI5WKEqVbuy+bmL7hSEVyHFKUKjc=
   STORAGE_DIR: /tmp
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+  ## Set these environment variables according to your CloudSQL configuration.
+  DB_HOST: localhost
+  DB_DATABASE: practice_devops_kw
+  DB_USERNAME: homestead
+  DB_PASSWORD: secret
+  DB_SOCKET: "/cloudsql/kellerwilliams-198710:us-east1:practice-devops-kw"
+
+beta_settings:
+    # for Cloud SQL, set this value to the Cloud SQL connection name,
+    # e.g. "project:region:cloudsql-instance"
+    cloud_sql_instances: "kellerwilliams-198710:us-east1:practice-devops-kw"
+

@@ -1,0 +1,30 @@
+language: php
+
+php:
+  - 7.1
+
+services:
+  - mysql
+
+# Only watch the master branch and tagged release.
+branches:
+ only:
+   - master
+   - develop
+   - stage
+   - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
+before_script:
+  - mysql -u root -e 'CREATE DATABASE homestead_test;'
+    mysql -u root -e "CREATE USER 'homestead'@'localhost' IDENTIFIED BY
+    'secret';"
+  - mysql -u root -e "GRANT ALL ON homestead_test.* TO 'homestead'@'localhost';"
+  - cp .env.travis .env
+  - composer self-update
+  - composer clear-cache -vvv
+  - composer install --no-interaction -vvv
+  - composer dump-autoload -vvv
+  - php artisan migrate:refresh --seed
+
+script:
+  - ./vendor/bin/phpunit
