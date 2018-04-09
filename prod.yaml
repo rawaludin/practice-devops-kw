@@ -1,0 +1,29 @@
+runtime: php
+env: flex
+euse Google\Cloud\ErrorReporting\Bootstrap;ppnable_stackdriver_integration: true
+
+runtime_config:
+  document_root: public
+
+# Ensure we skip ".env", which is only for local development
+skip_files:
+  - .env
+  - vendor/
+
+env_variables:
+  # Put production environment variables here.
+  APP_KEY: base64:/G+V/4bO6TRCfNYiI5WKEqVbuy+bmL7hSEVyHFKUKjc=
+  STORAGE_DIR: /tmp
+  CACHE_DRIVER: memcached
+  SESSION_DRIVER: memcached
+  ## Set these environment variables according to your CloudSQL configuration.
+  DB_HOST: localhost
+  DB_DATABASE: production
+  DB_USERNAME: root
+  DB_PASSWORD: siyI9b9bHNlvpGoF
+  DB_SOCKET: "/cloudsql/kellerwilliam-200502:us-east1:kellerwilliam"
+
+beta_settings:
+    # for Cloud SQL, set this value to the Cloud SQL connection name,
+    # e.g. "project:region:cloudsql-instance"
+    cloud_sql_instances: "kellerwilliam-200502:us-east1:kellerwilliam"
